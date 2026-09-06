@@ -7,7 +7,7 @@ public class Tests {
 	// [X] Una función que compruebe si la contraseña contiene una mayúscula.
 	// [X] Una función que compruebe que la contraseña contenga una minúscula.
 	// [X] Una función que compruebe que la contraseña contenga un número.
-	// [ ] Una función que compruebe que la contraseña contenga una barra baja.
+	// [X] Una función que compruebe que la contraseña contenga una barra baja.
 	
 	[SetUp]
 	public void Setup() { }
@@ -103,5 +103,20 @@ public class Tests {
 		bool isPasswordValid = ExampleCode.HasPasswordNumber(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
+	
+	[Test]
+	public void PasswordHasUnderscore()
+	{
+		string password = "sadkhjhHHH1_";
+		bool isPasswordValid = ExampleCode.HasPasswordUnderscore(password);
+		Assert.That(isPasswordValid, Is.True);
+	}
 
+	[Test]
+	public void PasswordDoesntHaveUnderscore()
+	{
+		string password = "GHSDGHJSADGASHJ";
+		bool isPasswordValid = ExampleCode.HasPasswordUnderscore(password);
+		Assert.That(isPasswordValid, Is.False);
+	}
 }

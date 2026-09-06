@@ -30,4 +30,9 @@ public class ExampleCode {
     {
         return password.Any(char.IsNumber);
     }
+    
+    public static bool HasPasswordUnderscore(string password)
+    {
+        return password.Contains('_');
+    }
 }
