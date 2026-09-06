@@ -20,4 +20,9 @@ public class ExampleCode {
     {
         return password.ToLower() != password;
     }
+    
+    public static bool HasPasswordLowercase(string password)
+    {
+        return password.ToUpper() != password;
+    }
 }

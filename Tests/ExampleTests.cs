@@ -4,8 +4,8 @@ namespace Tests;
 
 public class Tests {
 	// [X] Una función que compruebe si la contraseña tiene más de 8 caracteres.
-	// [ ] Una función que compruebe si la contraseña contiene una mayúscula.
-	// [ ] Una función que compruebe que la contraseña contenga una minúscula.
+	// [X] Una función que compruebe si la contraseña contiene una mayúscula.
+	// [X] Una función que compruebe que la contraseña contenga una minúscula.
 	
 	[SetUp]
 	public void Setup() { }
@@ -69,4 +69,21 @@ public class Tests {
 		bool isPasswordValid = ExampleCode.HasPasswordUppercase(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
+	
+	[Test]
+	public void PasswordHasLowercase()
+	{
+		string password = "sadkhjhHHH";
+		bool isPasswordValid = ExampleCode.HasPasswordLowercase(password);
+		Assert.That(isPasswordValid, Is.True);
+	}
+
+	[Test]
+	public void PasswordDoesntHaveLowercase()
+	{
+		string password = "GHSDGHJSADGASHJ";
+		bool isPasswordValid = ExampleCode.HasPasswordLowercase(password);
+		Assert.That(isPasswordValid, Is.False);
+	}
+
 }
