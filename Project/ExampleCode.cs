@@ -8,10 +8,14 @@ public class ExampleCode {
 
     public static bool IsPasswordValid(string password)
     {
-        return IsPasswordLengthValid(password);
+        return HasPasswordEightCharacters(password) && 
+               HasPasswordUppercase(password) && 
+               HasPasswordLowercase(password) &&
+               HasPasswordNumber(password) &&
+               HasPasswordUnderscore(password);
     }
     
-    public static bool IsPasswordLengthValid(string password)
+    public static bool HasPasswordEightCharacters(string password)
     {
         return password.Length > 8;
     }

@@ -33,9 +33,41 @@ public class Tests {
 	}
 
 	[Test]
-	public void PasswordInvalid()
+	public void PasswordInvalidBecauseTooShort()
 	{
-		string password = "*";
+		string password = "aA_12";
+		bool isPasswordValid = ExampleCode.IsPasswordValid(password);
+		Assert.That(isPasswordValid, Is.False);
+	}
+	
+	[Test]
+	public void PasswordInvalidBecauseNoUppercase()
+	{
+		string password = "aa_12345678";
+		bool isPasswordValid = ExampleCode.IsPasswordValid(password);
+		Assert.That(isPasswordValid, Is.False);
+	}
+	
+	[Test]
+	public void PasswordInvalidBecauseNoLowercase()
+	{
+		string password = "AA_12345678";
+		bool isPasswordValid = ExampleCode.IsPasswordValid(password);
+		Assert.That(isPasswordValid, Is.False);
+	}
+	
+	[Test]
+	public void PasswordInvalidBecauseNoNumber()
+	{
+		string password = "aa_HDSJKHDjdhsh";
+		bool isPasswordValid = ExampleCode.IsPasswordValid(password);
+		Assert.That(isPasswordValid, Is.False);
+	}
+	
+	[Test]
+	public void PasswordInvalidBecauseNoUnderscore()
+	{
+		string password = "aaA12345678";
 		bool isPasswordValid = ExampleCode.IsPasswordValid(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
@@ -44,7 +76,7 @@ public class Tests {
 	public void PasswordLengthIsValid()
 	{
 		string password = "sgashjdgahjgas";
-		bool isPasswordValid = ExampleCode.IsPasswordLengthValid(password);
+		bool isPasswordValid = ExampleCode.HasPasswordEightCharacters(password);
 		Assert.That(isPasswordValid, Is.True);
 	}
 	
@@ -52,7 +84,7 @@ public class Tests {
 	public void PasswordLengthIsInvalid()
 	{
 		string password = "12345678";
-		bool isPasswordValid = ExampleCode.IsPasswordLengthValid(password);
+		bool isPasswordValid = ExampleCode.HasPasswordEightCharacters(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
 
