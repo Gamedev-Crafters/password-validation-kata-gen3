@@ -5,4 +5,9 @@ public class ExampleCode {
     {
         return a + b;
     }
+
+    public static bool IsPasswordValid(string password)
+    {
+        return true;
+    }
 }
