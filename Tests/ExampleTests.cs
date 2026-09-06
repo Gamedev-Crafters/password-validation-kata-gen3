@@ -3,6 +3,9 @@ using Project;
 namespace Tests;
 
 public class Tests {
+	// [ ] Una función que compruebe si la contraseña tiene más de 8 caracteres.
+	// [ ] Una función que compruebe si la contraseña contiene una mayúscula.
+	
 	[SetUp]
 	public void Setup() { }
 
@@ -19,10 +22,19 @@ public class Tests {
 	}
 	
 	[Test]
-	public void PasswordTest()
+	public void PasswordLengthIsValid()
 	{
 		string password = "sgashjdgahjgas";
 		bool isPasswordValid = ExampleCode.IsPasswordValid(password);
 		Assert.That(isPasswordValid, Is.True);
 	}
+	
+	[Test]
+	public void PasswordLengthIsInvalid()
+	{
+		string password = "a";
+		bool isPasswordValid = ExampleCode.IsPasswordValid(password);
+		Assert.That(isPasswordValid, Is.False);
+	}
+	
 }
