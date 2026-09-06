@@ -25,4 +25,9 @@ public class ExampleCode {
     {
         return password.ToUpper() != password;
     }
+    
+    public static bool HasPasswordNumber(string password)
+    {
+        return password.Any(char.IsNumber);
+    }
 }
