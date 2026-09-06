@@ -49,7 +49,7 @@ public class Tests {
 	[Test]
 	public void PasswordLengthIsInvalid()
 	{
-		string password = "a";
+		string password = "12345678";
 		bool isPasswordValid = ExampleCode.IsPasswordLengthValid(password);
 		Assert.That(isPasswordValid, Is.False);
 	}

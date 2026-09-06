@@ -13,7 +13,7 @@ public class ExampleCode {
     
     public static bool IsPasswordLengthValid(string password)
     {
-        return password.Length >= 8;
+        return password.Length > 8;
     }
 
     public static bool HasPasswordUppercase(string password)
