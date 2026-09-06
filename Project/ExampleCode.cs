@@ -8,6 +8,6 @@ public class ExampleCode {
 
     public static bool IsPasswordValid(string password)
     {
-        return true;
+        return password.Length >= 8;
     }
 }
