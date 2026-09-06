@@ -2,7 +2,7 @@ using Project;
 
 namespace Tests;
 
-public class Tests {
+public class PasswordTests {
 	// [X] Una función que compruebe si la contraseña tiene más de 8 caracteres.
 	// [X] Una función que compruebe si la contraseña contiene una mayúscula.
 	// [X] Una función que compruebe que la contraseña contenga una minúscula.
@@ -13,22 +13,10 @@ public class Tests {
 	public void Setup() { }
 
 	[Test]
-	public void Test1() {
-		Assert.Pass();
-	}
-
-	[Test]
-	public void ExampleTest()
-	{
-		ExampleCode example_code = new ExampleCode();
-		Assert.That(example_code.ExampleMethod(1, 2), Is.EqualTo(3));
-	}
-
-	[Test]
 	public void PasswordValid()
 	{
 		string password = "aA_12345678";
-		bool isPasswordValid = ExampleCode.IsPasswordValid(password);
+		bool isPasswordValid = PasswordChecker.IsValid(password);
 		Assert.That(isPasswordValid, Is.True);
 	}
 
@@ -36,7 +24,7 @@ public class Tests {
 	public void PasswordInvalidBecauseTooShort()
 	{
 		string password = "aA_12";
-		bool isPasswordValid = ExampleCode.IsPasswordValid(password);
+		bool isPasswordValid = PasswordChecker.IsValid(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
 	
@@ -44,7 +32,7 @@ public class Tests {
 	public void PasswordInvalidBecauseNoUppercase()
 	{
 		string password = "aa_12345678";
-		bool isPasswordValid = ExampleCode.IsPasswordValid(password);
+		bool isPasswordValid = PasswordChecker.IsValid(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
 	
@@ -52,7 +40,7 @@ public class Tests {
 	public void PasswordInvalidBecauseNoLowercase()
 	{
 		string password = "AA_12345678";
-		bool isPasswordValid = ExampleCode.IsPasswordValid(password);
+		bool isPasswordValid = PasswordChecker.IsValid(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
 	
@@ -60,7 +48,7 @@ public class Tests {
 	public void PasswordInvalidBecauseNoNumber()
 	{
 		string password = "aa_HDSJKHDjdhsh";
-		bool isPasswordValid = ExampleCode.IsPasswordValid(password);
+		bool isPasswordValid = PasswordChecker.IsValid(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
 	
@@ -68,7 +56,7 @@ public class Tests {
 	public void PasswordInvalidBecauseNoUnderscore()
 	{
 		string password = "aaA12345678";
-		bool isPasswordValid = ExampleCode.IsPasswordValid(password);
+		bool isPasswordValid = PasswordChecker.IsValid(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
 	
@@ -76,7 +64,7 @@ public class Tests {
 	public void PasswordLengthIsValid()
 	{
 		string password = "sgashjdgahjgas";
-		bool isPasswordValid = ExampleCode.HasPasswordEightCharacters(password);
+		bool isPasswordValid = PasswordChecker.HasMoreThanEightCharacters(password);
 		Assert.That(isPasswordValid, Is.True);
 	}
 	
@@ -84,7 +72,7 @@ public class Tests {
 	public void PasswordLengthIsInvalid()
 	{
 		string password = "12345678";
-		bool isPasswordValid = ExampleCode.HasPasswordEightCharacters(password);
+		bool isPasswordValid = PasswordChecker.HasMoreThanEightCharacters(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
 
@@ -92,7 +80,7 @@ public class Tests {
 	public void PasswordHasUppercase()
 	{
 		string password = "sadkhAjhfkjs";
-		bool isPasswordValid = ExampleCode.HasPasswordUppercase(password);
+		bool isPasswordValid = PasswordChecker.HasUppercase(password);
 		Assert.That(isPasswordValid, Is.True);
 	}
 
@@ -100,7 +88,7 @@ public class Tests {
 	public void PasswordDoesntHaveUppercase()
 	{
 		string password = "sadkhajhfkjs";
-		bool isPasswordValid = ExampleCode.HasPasswordUppercase(password);
+		bool isPasswordValid = PasswordChecker.HasUppercase(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
 	
@@ -108,7 +96,7 @@ public class Tests {
 	public void PasswordHasLowercase()
 	{
 		string password = "sadkhjhHHH";
-		bool isPasswordValid = ExampleCode.HasPasswordLowercase(password);
+		bool isPasswordValid = PasswordChecker.HasLowercase(password);
 		Assert.That(isPasswordValid, Is.True);
 	}
 
@@ -116,7 +104,7 @@ public class Tests {
 	public void PasswordDoesntHaveLowercase()
 	{
 		string password = "GHSDGHJSADGASHJ";
-		bool isPasswordValid = ExampleCode.HasPasswordLowercase(password);
+		bool isPasswordValid = PasswordChecker.HasLowercase(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
 	
@@ -124,7 +112,7 @@ public class Tests {
 	public void PasswordHasNumber()
 	{
 		string password = "sadkhjhHHH1";
-		bool isPasswordValid = ExampleCode.HasPasswordNumber(password);
+		bool isPasswordValid = PasswordChecker.HasNumber(password);
 		Assert.That(isPasswordValid, Is.True);
 	}
 
@@ -132,7 +120,7 @@ public class Tests {
 	public void PasswordDoesntHaveNumber()
 	{
 		string password = "GHSDGHJSADGASHJ";
-		bool isPasswordValid = ExampleCode.HasPasswordNumber(password);
+		bool isPasswordValid = PasswordChecker.HasNumber(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
 	
@@ -140,7 +128,7 @@ public class Tests {
 	public void PasswordHasUnderscore()
 	{
 		string password = "sadkhjhHHH1_";
-		bool isPasswordValid = ExampleCode.HasPasswordUnderscore(password);
+		bool isPasswordValid = PasswordChecker.HasUnderscore(password);
 		Assert.That(isPasswordValid, Is.True);
 	}
 
@@ -148,7 +136,7 @@ public class Tests {
 	public void PasswordDoesntHaveUnderscore()
 	{
 		string password = "GHSDGHJSADGASHJ";
-		bool isPasswordValid = ExampleCode.HasPasswordUnderscore(password);
+		bool isPasswordValid = PasswordChecker.HasUnderscore(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
 }
