@@ -58,7 +58,7 @@ public class Tests {
 	public void PasswordHasUppercase()
 	{
 		string password = "sadkhAjhfkjs";
-		bool isPasswordValid = ExampleCode.IsPasswordValid(password);
+		bool isPasswordValid = ExampleCode.HasPasswordUppercase(password);
 		Assert.That(isPasswordValid, Is.True);
 	}
 
@@ -66,7 +66,7 @@ public class Tests {
 	public void PasswordDoesntHaveUppercase()
 	{
 		string password = "sadkhajhfkjs";
-		bool isPasswordValid = ExampleCode.IsPasswordValid(password);
+		bool isPasswordValid = ExampleCode.HasPasswordUppercase(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
 }

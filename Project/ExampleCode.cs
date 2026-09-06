@@ -15,4 +15,9 @@ public class ExampleCode {
     {
         return password.Length >= 8;
     }
+
+    public static bool HasPasswordUppercase(string password)
+    {
+        return password.ToLower() != password;
+    }
 }
