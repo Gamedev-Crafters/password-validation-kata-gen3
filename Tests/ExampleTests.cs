@@ -20,13 +20,29 @@ public class Tests {
 	}
 
 	[Test]
-	public void Passwordxyz()
+	public void PasswordLenghtNotEnough()
 	{
 		string password = "key";
 
-		Assert.That(ExampleCode.ValidatePassword(password), Is.True);
+		Assert.That(ExampleCode.ValidatePassword(password), Is.False);
 	}
 	
+	[Test]
+	public void PasswordLenghtEnough()
+	{
+		string password = "12345678";
+
+		Assert.That(ExampleCode.ValidatePassword(password), Is.True);
+	}
+
+	[Test]
+	public void PasswordHasNumbers()
+	{
+		string password = "1a32s1df3sa";
+		
+		Assert.That(ExampleCode.ValidatePassword(password), Is.False);
+	}
+
 	/*
 	[Test]
 	public void Passwordqwe()
