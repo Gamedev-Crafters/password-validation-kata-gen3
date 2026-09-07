@@ -13,16 +13,15 @@ public class Tests {
 	}
 
 	[Test]
-	public void ExampleTest()
-	{
-		ExampleCode example_code = new ExampleCode();
-		Assert.That(example_code.ExampleMethod(1, 2), Is.EqualTo(3));
-	}
-
-	[Test]
 	public void PasswordValid()
 	{
 		Assert.That(ExampleCode.ValidatePassword("key_A12a3sd1fa5s3"), Is.True);
+	}
+	
+	[Test]
+	public void PasswordValid_2()
+	{
+		Assert.That(ExampleCode2.ValidatePassword("keyA12a3sd1fa5s3"), Is.True);
 	}
 	
 	[Test]
@@ -95,4 +94,21 @@ public class Tests {
 	{
 		Assert.That(ExampleCode.ValidateContainsUppercase(""), Is.False);
 	}
+	
+	/*
+	 * password = "algo";
+	 * reglas = "algunas";
+	 *
+	 * if(
+	 * password.Lenght > 6 && 
+	 * ValidateContainsUppercase(password)
+	 * )
+	 * {
+	 *	ta bien
+	 * }
+	 * else
+	 * {
+	 *	ta mal
+	 * }
+	 */
 }
