@@ -26,6 +26,12 @@ public class Tests {
 	}
 	
 	[Test]
+	public void PasswordInvalid()
+	{
+		Assert.That(ExampleCode.ValidatePassword("a"), Is.False);
+	}
+	
+	[Test]
 	public void PasswordLenghtNotEnough() {
 		Assert.That(ExampleCode.ValidateLength("key"), Is.False);
 	}

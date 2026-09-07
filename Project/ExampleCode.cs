@@ -8,7 +8,12 @@ public class ExampleCode {
 
     public static bool ValidatePassword(string password)
     {
-        return password.Length >= 8;
+        return 
+            ValidateLength(password) &&
+            ValidateContainsNumbers(password) &&
+            ValidateContainsUnderscore(password) && 
+            ValidateContainsLowercase(password) &&
+            ValidateContainsUppercase(password);
     }
     
     public static bool ValidateLength(string password)
