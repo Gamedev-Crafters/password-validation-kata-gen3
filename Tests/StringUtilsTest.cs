@@ -7,13 +7,13 @@ public class StringUtilsTest
 {
     [Test]
     public void PasswordLenghtNotEnough() {
-        Assert.That(StringUtils.ValidateLengthBiggerThan8("key"), Is.False);
+        Assert.That(StringUtils.ValidateLength("key", 8), Is.False);
     }
 	
     [Test]
     public void PasswordLenghtEnough()
     {
-        Assert.That(StringUtils.ValidateLengthBiggerThan8("123456789"), Is.True);
+        Assert.That(StringUtils.ValidateLength("123456789", 8), Is.True);
     }
 
     [Test]
