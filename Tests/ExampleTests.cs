@@ -20,11 +20,19 @@ public class Tests {
 	}
 
 	[Test]
+	public void PasswordValid()
+	{
+		string password = "key_A12a3sd1fa5s3";
+
+		Assert.That(ExampleCode.ValidatePassword(password), Is.True);
+	}
+	
+	[Test]
 	public void PasswordLenghtNotEnough()
 	{
 		string password = "key";
 
-		Assert.That(ExampleCode.ValidatePassword(password), Is.False);
+		Assert.That(ExampleCode.ValidateLength(password), Is.False);
 	}
 	
 	[Test]
@@ -32,7 +40,7 @@ public class Tests {
 	{
 		string password = "12345678";
 
-		Assert.That(ExampleCode.ValidatePassword(password), Is.True);
+		Assert.That(ExampleCode.ValidateLength(password), Is.True);
 	}
 
 	[Test]
@@ -40,16 +48,14 @@ public class Tests {
 	{
 		string password = "1a32s1df3sa";
 		
-		Assert.That(ExampleCode.ValidatePassword(password), Is.False);
+		Assert.That(ExampleCode.ValidateContainsNumbers(password), Is.True);
 	}
-
-	/*
+	
 	[Test]
-	public void Passwordqwe()
+	public void PasswordDoesNotHaveNumbers()
 	{
-		Password password = new Password();
-
-		Assert.That(ValidatePassword(password), Is.False);
+		string password = "alkjshdflas";
+		
+		Assert.That(ExampleCode.ValidateContainsNumbers(password), Is.False);
 	}
-	*/
 }
