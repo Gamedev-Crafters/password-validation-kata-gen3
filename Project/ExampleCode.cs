@@ -5,11 +5,11 @@ public static class Validator1
     public static bool ValidatePassword(string password)
     {
         return
-            StringUtils.ValidateLength(password, 8) &&
-            StringUtils.ValidateContainsUppercase(password) &&
-            StringUtils.ValidateContainsLowercase(password) &&
-            StringUtils.ValidateContainsNumbers(password) &&
-            StringUtils.ValidateContainsUnderscore(password);
+            StringValidate.Length(password, 8) &&
+            StringValidate.ContainsUppercase(password) &&
+            StringValidate.ContainsLowercase(password) &&
+            StringValidate.ContainsNumbers(password) &&
+            StringValidate.ContainsUnderscore(password);
     }    
 }
 
@@ -18,10 +18,10 @@ public static class Validator2
     public static bool ValidatePassword(string password)
     {
         return
-            StringUtils.ValidateLength(password, 6) &&
-            StringUtils.ValidateContainsUppercase(password) &&
-            StringUtils.ValidateContainsLowercase(password) &&
-            StringUtils.ValidateContainsNumbers(password);
+            StringValidate.Length(password, 6) &&
+            StringValidate.ContainsUppercase(password) &&
+            StringValidate.ContainsLowercase(password) &&
+            StringValidate.ContainsNumbers(password);
     }
 }
 
@@ -30,21 +30,21 @@ public static class Validator3
     public static bool ValidatePassword(string password)
     {
         return
-            StringUtils.ValidateLength(password, 16) &&
-            StringUtils.ValidateContainsUppercase(password) &&
-            StringUtils.ValidateContainsLowercase(password) &&
-            StringUtils.ValidateContainsUnderscore(password);
+            StringValidate.Length(password, 16) &&
+            StringValidate.ContainsUppercase(password) &&
+            StringValidate.ContainsLowercase(password) &&
+            StringValidate.ContainsUnderscore(password);
     }    
 }
 
-public static class StringUtils 
+public static class StringValidate 
 {
-    public static bool ValidateLength(string password, int biggerThan)
+    public static bool Length(string password, int biggerThan)
     {
         return password.Length > biggerThan;
     }
     
-    public static bool ValidateContainsNumbers(string password)
+    public static bool ContainsNumbers(string password)
     {
         // TODO algun valiente que haga regex
         return 
@@ -60,17 +60,17 @@ public static class StringUtils
             password.Contains('9');
     }
 
-    public static bool ValidateContainsUnderscore(string password)
+    public static bool ContainsUnderscore(string password)
     {
         return password.Contains('_');
     }
 
-    public static bool ValidateContainsLowercase(string password)
+    public static bool ContainsLowercase(string password)
     {
         return password != password.ToUpper();
     }
     
-    public static bool ValidateContainsUppercase(string password)
+    public static bool ContainsUppercase(string password)
     {
         return password != password.ToLower();
     }

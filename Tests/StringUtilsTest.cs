@@ -3,70 +3,70 @@
 using Project;
 
 [TestFixture]
-public class StringUtilsTest
+public class StringValidateTest
 {
     [Test]
     public void PasswordLenghtNotEnough() {
-        Assert.That(StringUtils.ValidateLength("key", 8), Is.False);
+        Assert.That(StringValidate.Length("key", 8), Is.False);
     }
 	
     [Test]
     public void PasswordLenghtEnough()
     {
-        Assert.That(StringUtils.ValidateLength("123456789", 8), Is.True);
+        Assert.That(StringValidate.Length("123456789", 8), Is.True);
     }
 
     [Test]
     public void PasswordHasNumbers()
     {
-        Assert.That(StringUtils.ValidateContainsNumbers("1a32s1df3sa"), Is.True);
+        Assert.That(StringValidate.ContainsNumbers("1a32s1df3sa"), Is.True);
     }
 	
     [Test]
     public void PasswordDoesNotHaveNumbers()
     {
-        Assert.That(StringUtils.ValidateContainsNumbers("alkjshdflas"), Is.False);
+        Assert.That(StringValidate.ContainsNumbers("alkjshdflas"), Is.False);
     }
 	
     [Test]
     public void PasswordHasUnderscore()
     {
-        Assert.That(StringUtils.ValidateContainsUnderscore("asdf_ASdf"), Is.True);
+        Assert.That(StringValidate.ContainsUnderscore("asdf_ASdf"), Is.True);
     }
 	
     [Test]
     public void PasswordDoesNotHaveUnderscore()
     {
-        Assert.That(StringUtils.ValidateContainsUnderscore("asdfASdf"), Is.False);
+        Assert.That(StringValidate.ContainsUnderscore("asdfASdf"), Is.False);
     }
 	
     [Test]
     public void PasswordHasLowercase()
     {
-        Assert.That(StringUtils.ValidateContainsLowercase("asdfasdf"), Is.True);
+        Assert.That(StringValidate.ContainsLowercase("asdfasdf"), Is.True);
     }
 	
     [Test]
     public void PasswordDoesNotHaveLowercase()
     {
-        Assert.That(StringUtils.ValidateContainsLowercase("ASDAJGFSJDA"), Is.False);
+        Assert.That(StringValidate.ContainsLowercase("ASDAJGFSJDA"), Is.False);
     }
 	
     [Test]
     public void PasswordHasUppercase()
     {
-        Assert.That(StringUtils.ValidateContainsUppercase("ASHDGFAGHF"), Is.True);
+        Assert.That(StringValidate.ContainsUppercase("ASHDGFAGHF"), Is.True);
     }
 	
     [Test]
     public void PasswordDoesNotHaveUppercase()
     {
-        Assert.That(StringUtils.ValidateContainsUppercase("asdfasdfa"), Is.False);
+        Assert.That(StringValidate.ContainsUppercase("asdfasdfa"), Is.False);
     }
 	
     [Test]
     public void EmptyPasswordThatDoesNotHaveUppercase()
     {
-        Assert.That(StringUtils.ValidateContainsUppercase(""), Is.False);
+        Assert.That(StringValidate.ContainsUppercase(""), Is.False);
     }
 }
