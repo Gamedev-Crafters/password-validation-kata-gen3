@@ -5,7 +5,7 @@ public static class Validator1
     public static bool ValidatePassword(string password)
     {
         return 
-            StringUtils.ValidateLength(password) &&
+            StringUtils.ValidateLengthBiggerThan7(password) &&
             StringUtils.ValidateContainsNumbers(password) &&
             StringUtils.ValidateContainsUnderscore(password) && 
             StringUtils.ValidateContainsLowercase(password) &&
@@ -18,7 +18,7 @@ public static class Validator2
     public static bool ValidatePassword(string password)
     {
         return 
-            StringUtils.ValidateLength(password) &&
+            StringUtils.ValidateLengthBiggerThan6(password) &&
             StringUtils.ValidateContainsNumbers(password) &&
             StringUtils.ValidateContainsLowercase(password) &&
             StringUtils.ValidateContainsUppercase(password);
@@ -27,9 +27,14 @@ public static class Validator2
 
 public static class StringUtils 
 {
-    public static bool ValidateLength(string password)
+    public static bool ValidateLengthBiggerThan7(string password)
     {
         return password.Length >= 8;
+    }
+    
+    public static bool ValidateLengthBiggerThan6(string password)
+    {
+        return password.Length > 6;
     }
     
     public static bool ValidateContainsNumbers(string password)
