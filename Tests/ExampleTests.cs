@@ -55,7 +55,7 @@ public class Tests {
 	}
 	
 	[Test]
-	public void PasswordDoesnotHaveUnderscore()
+	public void PasswordDoesNotHaveUnderscore()
 	{
 		Assert.That(ExampleCode.ValidateContainsUnderscore("asdfASdf"), Is.False);
 	}
@@ -67,7 +67,7 @@ public class Tests {
 	}
 	
 	[Test]
-	public void PasswordDoesnotHaveLowercase()
+	public void PasswordDoesNotHaveLowercase()
 	{
 		Assert.That(ExampleCode.ValidateContainsLowercase("ASDAJGFSJDA"), Is.False);
 	}
@@ -79,7 +79,7 @@ public class Tests {
 	}
 	
 	[Test]
-	public void PasswordDoesnotHaveUppercase()
+	public void PasswordDoesNotHaveUppercase()
 	{
 		Assert.That(ExampleCode.ValidateContainsUppercase("asdfasdfa"), Is.False);
 	}
