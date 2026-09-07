@@ -29,4 +29,10 @@ public class Tests {
 	{
 		Assert.That(Validator2.ValidatePassword("keyA12a"), Is.True);
 	}
+	
+	[Test]
+	public void PasswordInvalid_2()
+	{
+		Assert.That(Validator2.ValidatePassword("a"), Is.False);
+	}
 }
