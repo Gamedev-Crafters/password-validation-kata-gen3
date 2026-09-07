@@ -47,4 +47,40 @@ public class Tests {
 	{
 		Assert.That(ExampleCode.ValidateContainsNumbers("alkjshdflas"), Is.False);
 	}
+	
+	[Test]
+	public void PasswordHasUnderscore()
+	{
+		Assert.That(ExampleCode.ValidateContainsUnderscore("asdf_ASdf"), Is.True);
+	}
+	
+	[Test]
+	public void PasswordDoesnotHaveUnderscore()
+	{
+		Assert.That(ExampleCode.ValidateContainsUnderscore("asdfASdf"), Is.False);
+	}
+	
+	[Test]
+	public void PasswordHasLowercase()
+	{
+		Assert.That(ExampleCode.ValidateContainsLowercase("asdfasdf"), Is.True);
+	}
+	
+	[Test]
+	public void PasswordDoesnotHaveLowercase()
+	{
+		Assert.That(ExampleCode.ValidateContainsLowercase("ASDAJGFSJDA"), Is.False);
+	}
+	
+	[Test]
+	public void PasswordHasUppercase()
+	{
+		Assert.That(ExampleCode.ValidateContainsUppercase("ASHDGFAGHF"), Is.True);
+	}
+	
+	[Test]
+	public void PasswordDoesnotHaveUppercase()
+	{
+		Assert.That(ExampleCode.ValidateContainsUppercase("asdfasdfa"), Is.False);
+	}
 }

@@ -31,4 +31,19 @@ public class ExampleCode {
             password.Contains('8') ||
             password.Contains('9');
     }
+
+    public static bool ValidateContainsUnderscore(string password)
+    {
+        return password.Contains('_');
+    }
+
+    public static bool ValidateContainsLowercase(string password)
+    {
+        return password == password.ToLower();
+    }
+    
+    public static bool ValidateContainsUppercase(string password)
+    {
+        return password == password.ToUpper();
+    }
 }
