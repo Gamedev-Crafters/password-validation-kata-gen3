@@ -22,40 +22,29 @@ public class Tests {
 	[Test]
 	public void PasswordValid()
 	{
-		string password = "key_A12a3sd1fa5s3";
-
-		Assert.That(ExampleCode.ValidatePassword(password), Is.True);
+		Assert.That(ExampleCode.ValidatePassword("key_A12a3sd1fa5s3"), Is.True);
 	}
 	
 	[Test]
-	public void PasswordLenghtNotEnough()
-	{
-		string password = "key";
-
-		Assert.That(ExampleCode.ValidateLength(password), Is.False);
+	public void PasswordLenghtNotEnough() {
+		Assert.That(ExampleCode.ValidateLength("key"), Is.False);
 	}
 	
 	[Test]
 	public void PasswordLenghtEnough()
 	{
-		string password = "12345678";
-
-		Assert.That(ExampleCode.ValidateLength(password), Is.True);
+		Assert.That(ExampleCode.ValidateLength("12345678"), Is.True);
 	}
 
 	[Test]
 	public void PasswordHasNumbers()
 	{
-		string password = "1a32s1df3sa";
-		
-		Assert.That(ExampleCode.ValidateContainsNumbers(password), Is.True);
+		Assert.That(ExampleCode.ValidateContainsNumbers("1a32s1df3sa"), Is.True);
 	}
 	
 	[Test]
 	public void PasswordDoesNotHaveNumbers()
 	{
-		string password = "alkjshdflas";
-		
-		Assert.That(ExampleCode.ValidateContainsNumbers(password), Is.False);
+		Assert.That(ExampleCode.ValidateContainsNumbers("alkjshdflas"), Is.False);
 	}
 }
