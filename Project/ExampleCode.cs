@@ -4,12 +4,12 @@ public static class Validator1
 {
     public static bool ValidatePassword(string password)
     {
-        return 
+        return
             StringUtils.ValidateLength(password, 8) &&
-            StringUtils.ValidateContainsNumbers(password) &&
-            StringUtils.ValidateContainsUnderscore(password) && 
+            StringUtils.ValidateContainsUppercase(password) &&
             StringUtils.ValidateContainsLowercase(password) &&
-            StringUtils.ValidateContainsUppercase(password);
+            StringUtils.ValidateContainsNumbers(password) &&
+            StringUtils.ValidateContainsUnderscore(password);
     }    
 }
 
@@ -17,11 +17,11 @@ public static class Validator2
 {
     public static bool ValidatePassword(string password)
     {
-        return 
+        return
             StringUtils.ValidateLength(password, 6) &&
-            StringUtils.ValidateContainsNumbers(password) &&
+            StringUtils.ValidateContainsUppercase(password) &&
             StringUtils.ValidateContainsLowercase(password) &&
-            StringUtils.ValidateContainsUppercase(password);
+            StringUtils.ValidateContainsNumbers(password);
     }
 }
 
