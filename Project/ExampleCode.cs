@@ -5,4 +5,9 @@ public class ExampleCode {
     {
         return a + b;
     }
+
+    public static bool ValidatePassword(string password)
+    {
+        return password.Length >= 8;
+    }
 }
