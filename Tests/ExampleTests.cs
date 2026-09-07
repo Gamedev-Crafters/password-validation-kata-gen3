@@ -35,4 +35,16 @@ public class Tests {
 	{
 		Assert.That(Validator2.ValidatePassword("a"), Is.False);
 	}
+	
+	[Test]
+	public void PasswordValid_3()
+	{
+		Assert.That(Validator3.ValidatePassword("0123456789asdfA_b"), Is.True);
+	}
+	
+	[Test]
+	public void PasswordInvalid_3()
+	{
+		Assert.That(Validator3.ValidatePassword("keyA12a"), Is.False);
+	}
 }

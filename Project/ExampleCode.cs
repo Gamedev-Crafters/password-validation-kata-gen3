@@ -25,6 +25,18 @@ public static class Validator2
     }
 }
 
+public static class Validator3
+{
+    public static bool ValidatePassword(string password)
+    {
+        return
+            StringUtils.ValidateLength(password, 16) &&
+            StringUtils.ValidateContainsUppercase(password) &&
+            StringUtils.ValidateContainsLowercase(password) &&
+            StringUtils.ValidateContainsUnderscore(password);
+    }    
+}
+
 public static class StringUtils 
 {
     public static bool ValidateLength(string password, int biggerThan)
