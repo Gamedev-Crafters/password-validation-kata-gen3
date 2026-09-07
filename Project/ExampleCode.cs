@@ -39,11 +39,11 @@ public class ExampleCode {
 
     public static bool ValidateContainsLowercase(string password)
     {
-        return password == password.ToLower();
+        return password != password.ToUpper();
     }
     
     public static bool ValidateContainsUppercase(string password)
     {
-        return password == password.ToUpper();
+        return password != password.ToLower();
     }
 }

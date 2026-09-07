@@ -83,4 +83,10 @@ public class Tests {
 	{
 		Assert.That(ExampleCode.ValidateContainsUppercase("asdfasdfa"), Is.False);
 	}
+	
+	[Test]
+	public void EmptyPasswordThatDoesNotHAveUppercase()
+	{
+		Assert.That(ExampleCode.ValidateContainsUppercase(""), Is.False);
+	}
 }
