@@ -3,7 +3,7 @@ using Project;
 namespace Tests;
 
 public class PasswordTests {
-	// 
+	// [X] Generalizar HasMoreEightCharacters
 	[SetUp]
 	public void Setup() { }
 
@@ -56,10 +56,26 @@ public class PasswordTests {
 	}
 	
 	[Test]
-	public void PasswordLengthIsValid()
+	public void PasswordLengthIsMoreThanEight()
 	{
 		string password = "sgashjdgahjgas";
-		bool isPasswordValid = PasswordChecker.HasMoreThanEightCharacters(password);
+		bool isPasswordValid = PasswordChecker.HasMoreThanNumberCharacters(password, 8);
+		Assert.That(isPasswordValid, Is.True);
+	}
+	
+	[Test]
+	public void PasswordLengthMoreThanSix()
+	{
+		string password = "sgashjdgahj";
+		bool isPasswordValid = PasswordChecker.HasMoreThanNumberCharacters(password, 6);
+		Assert.That(isPasswordValid, Is.True);
+	}
+	
+	[Test]
+	public void PasswordLengthMoreThanSixteen()
+	{
+		string password = "sgashjdgahdhsjdsgsdjgasddahjdjgas";
+		bool isPasswordValid = PasswordChecker.HasMoreThanNumberCharacters(password, 16);
 		Assert.That(isPasswordValid, Is.True);
 	}
 	
@@ -67,7 +83,15 @@ public class PasswordTests {
 	public void PasswordLengthIsInvalid()
 	{
 		string password = "12345678";
-		bool isPasswordValid = PasswordChecker.HasMoreThanEightCharacters(password);
+		bool isPasswordValid = PasswordChecker.HasMoreThanNumberCharacters(password, 8);
+		Assert.That(isPasswordValid, Is.False);
+	}
+	
+	[Test]
+	public void PasswordLengthIsInvalidSixteen()
+	{
+		string password = "1234567890123456";
+		bool isPasswordValid = PasswordChecker.HasMoreThanNumberCharacters(password, 16);
 		Assert.That(isPasswordValid, Is.False);
 	}
 

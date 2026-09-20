@@ -4,16 +4,16 @@ public class PasswordChecker {
 
     public static bool IsValid(string password)
     {
-        return HasMoreThanEightCharacters(password) && 
+        return HasMoreThanNumberCharacters(password, 8) && 
                HasUppercase(password) && 
                HasLowercase(password) &&
                HasNumber(password) &&
                HasUnderscore(password);
     }
     
-    public static bool HasMoreThanEightCharacters(string password)
+    public static bool HasMoreThanNumberCharacters(string password, int charCount)
     {
-        return password.Length > 8;
+        return password.Length > charCount;
     }
 
     public static bool HasUppercase(string password)
