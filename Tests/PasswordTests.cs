@@ -38,6 +38,7 @@ public class PasswordTests {
 		string password = "aA_12";
 		bool isPasswordValid = PasswordChecker.IsValidForRulesetOne(password);
 		Assert.That(isPasswordValid, Is.False);
+		Assert.AreEqual(Printer.lastPrintedLine, "The password needs at least 8 long");
 	}
 	
 	[Test]

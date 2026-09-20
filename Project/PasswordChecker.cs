@@ -29,7 +29,14 @@ public class PasswordChecker {
     
     public static bool HasMoreThanNumberCharacters(string password, int charCount)
     {
-        return password.Length > charCount;
+        string errorMessage = "";
+        if (password.Length > charCount)
+        {
+            return true;
+        }
+        errorMessage = $"The password needs at least {charCount} long";
+        Printer.PrintLine(errorMessage);
+        return false;
     }
 
     public static bool HasUppercase(string password)
@@ -50,5 +57,16 @@ public class PasswordChecker {
     public static bool HasUnderscore(string password)
     {
         return password.Contains('_');
+    }
+}
+
+public class Printer
+{
+    public static string lastPrintedLine;
+
+    public static void PrintLine(string line)
+    {
+        lastPrintedLine = line;
+        Console.WriteLine(line);
     }
 }
