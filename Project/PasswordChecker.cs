@@ -27,16 +27,18 @@ public class PasswordChecker {
                HasUnderscore(password);
     }
     
+    public static bool MaybeError(bool isCorrect, string errorMessage, Printer printer){
+        if (!isCorrect)
+        {
+            printer.PrintLine(errorMessage);
+        }
+
+        return isCorrect;
+    }
+    
     public static bool HasMoreThanNumberCharacters(string password, int charCount, Printer printer)
     {
-        string errorMessage = "";
-        if (password.Length > charCount)
-        {
-            return true;
-        }
-        errorMessage = $"The password needs at least {charCount} long";
-        printer.PrintLine(errorMessage);
-        return false;
+        return MaybeError(password.Length > charCount, $"The password needs at least {charCount} long", printer);
     }
 
     public static bool HasUppercase(string password)
