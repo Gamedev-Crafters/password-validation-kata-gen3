@@ -4,14 +4,31 @@ namespace Tests;
 
 public class PasswordTests {
 	// [X] Generalizar HasMoreEightCharacters
+	// [X] Hacer funciones de otras validaciones
 	[SetUp]
 	public void Setup() { }
 
 	[Test]
-	public void PasswordValid()
+	public void PasswordValidationOne()
 	{
 		string password = "aA_12345678";
-		bool isPasswordValid = PasswordChecker.IsValid(password);
+		bool isPasswordValid = PasswordChecker.IsValidForRulesetOne(password);
+		Assert.That(isPasswordValid, Is.True);
+	}
+
+	[Test]
+	public void PasswordValidationTwo()
+	{
+		string password = "aZaaa3a";
+		bool isPasswordValid = PasswordChecker.IsValidForRulesetTwo(password);
+		Assert.That(isPasswordValid, Is.True);
+	}
+
+	[Test]
+	public void PasswordValidationThree()
+	{
+		string password = "aZaaaaa_aaaaaaaaa";
+		bool isPasswordValid = PasswordChecker.IsValidForRulesetThree(password);
 		Assert.That(isPasswordValid, Is.True);
 	}
 
@@ -19,7 +36,7 @@ public class PasswordTests {
 	public void PasswordInvalidBecauseTooShort()
 	{
 		string password = "aA_12";
-		bool isPasswordValid = PasswordChecker.IsValid(password);
+		bool isPasswordValid = PasswordChecker.IsValidForRulesetOne(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
 	
@@ -27,7 +44,7 @@ public class PasswordTests {
 	public void PasswordInvalidBecauseNoUppercase()
 	{
 		string password = "aa_12345678";
-		bool isPasswordValid = PasswordChecker.IsValid(password);
+		bool isPasswordValid = PasswordChecker.IsValidForRulesetOne(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
 	
@@ -35,7 +52,7 @@ public class PasswordTests {
 	public void PasswordInvalidBecauseNoLowercase()
 	{
 		string password = "AA_12345678";
-		bool isPasswordValid = PasswordChecker.IsValid(password);
+		bool isPasswordValid = PasswordChecker.IsValidForRulesetOne(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
 	
@@ -43,7 +60,7 @@ public class PasswordTests {
 	public void PasswordInvalidBecauseNoNumber()
 	{
 		string password = "aa_HDSJKHDjdhsh";
-		bool isPasswordValid = PasswordChecker.IsValid(password);
+		bool isPasswordValid = PasswordChecker.IsValidForRulesetOne(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
 	
@@ -51,7 +68,7 @@ public class PasswordTests {
 	public void PasswordInvalidBecauseNoUnderscore()
 	{
 		string password = "aaA12345678";
-		bool isPasswordValid = PasswordChecker.IsValid(password);
+		bool isPasswordValid = PasswordChecker.IsValidForRulesetOne(password);
 		Assert.That(isPasswordValid, Is.False);
 	}
 	

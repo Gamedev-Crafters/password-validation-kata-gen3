@@ -2,12 +2,28 @@ namespace Project;
 
 public class PasswordChecker {
 
-    public static bool IsValid(string password)
+    public static bool IsValidForRulesetOne(string password)
     {
         return HasMoreThanNumberCharacters(password, 8) && 
                HasUppercase(password) && 
                HasLowercase(password) &&
                HasNumber(password) &&
+               HasUnderscore(password);
+    }
+
+    public static bool IsValidForRulesetTwo(string password)
+    {
+        return HasMoreThanNumberCharacters(password, 6) &&
+               HasUppercase(password) &&
+               HasLowercase(password) &&
+               HasNumber(password);
+    }
+
+    public static bool IsValidForRulesetThree(string password)
+    {
+        return HasMoreThanNumberCharacters(password, 16) &&
+               HasUppercase(password) &&
+               HasLowercase(password) &&
                HasUnderscore(password);
     }
     
