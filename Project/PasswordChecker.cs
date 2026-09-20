@@ -4,7 +4,7 @@ public class PasswordChecker {
 
     public static bool IsValidForRulesetOne(string password)
     {
-        return HasMoreThanNumberCharacters(password, 8) && 
+        return HasMoreThanNumberCharacters(password, 8, new Printer()) && 
                HasUppercase(password) && 
                HasLowercase(password) &&
                HasNumber(password) &&
@@ -13,7 +13,7 @@ public class PasswordChecker {
 
     public static bool IsValidForRulesetTwo(string password)
     {
-        return HasMoreThanNumberCharacters(password, 6) &&
+        return HasMoreThanNumberCharacters(password, 6, new Printer()) &&
                HasUppercase(password) &&
                HasLowercase(password) &&
                HasNumber(password);
@@ -21,13 +21,13 @@ public class PasswordChecker {
 
     public static bool IsValidForRulesetThree(string password)
     {
-        return HasMoreThanNumberCharacters(password, 16) &&
+        return HasMoreThanNumberCharacters(password, 16, new Printer()) &&
                HasUppercase(password) &&
                HasLowercase(password) &&
                HasUnderscore(password);
     }
     
-    public static bool HasMoreThanNumberCharacters(string password, int charCount)
+    public static bool HasMoreThanNumberCharacters(string password, int charCount, Printer printer)
     {
         string errorMessage = "";
         if (password.Length > charCount)
@@ -35,7 +35,7 @@ public class PasswordChecker {
             return true;
         }
         errorMessage = $"The password needs at least {charCount} long";
-        Printer.PrintLine(errorMessage);
+        printer.PrintLine(errorMessage);
         return false;
     }
 
@@ -62,9 +62,9 @@ public class PasswordChecker {
 
 public class Printer
 {
-    public static string lastPrintedLine;
+    public string lastPrintedLine;
 
-    public static void PrintLine(string line)
+    public void PrintLine(string line)
     {
         lastPrintedLine = line;
         Console.WriteLine(line);

@@ -38,7 +38,6 @@ public class PasswordTests {
 		string password = "aA_12";
 		bool isPasswordValid = PasswordChecker.IsValidForRulesetOne(password);
 		Assert.That(isPasswordValid, Is.False);
-		Assert.AreEqual(Printer.lastPrintedLine, "The password needs at least 8 long");
 	}
 	
 	[Test]
@@ -77,7 +76,7 @@ public class PasswordTests {
 	public void PasswordLengthIsMoreThanEight()
 	{
 		string password = "sgashjdgahjgas";
-		bool isPasswordValid = PasswordChecker.HasMoreThanNumberCharacters(password, 8);
+		bool isPasswordValid = PasswordChecker.HasMoreThanNumberCharacters(password, 8, new Printer());
 		Assert.That(isPasswordValid, Is.True);
 	}
 	
@@ -85,7 +84,7 @@ public class PasswordTests {
 	public void PasswordLengthMoreThanSix()
 	{
 		string password = "sgashjdgahj";
-		bool isPasswordValid = PasswordChecker.HasMoreThanNumberCharacters(password, 6);
+		bool isPasswordValid = PasswordChecker.HasMoreThanNumberCharacters(password, 6, new Printer());
 		Assert.That(isPasswordValid, Is.True);
 	}
 	
@@ -93,7 +92,7 @@ public class PasswordTests {
 	public void PasswordLengthMoreThanSixteen()
 	{
 		string password = "sgashjdgahdhsjdsgsdjgasddahjdjgas";
-		bool isPasswordValid = PasswordChecker.HasMoreThanNumberCharacters(password, 16);
+		bool isPasswordValid = PasswordChecker.HasMoreThanNumberCharacters(password, 16, new Printer());
 		Assert.That(isPasswordValid, Is.True);
 	}
 	
@@ -101,7 +100,7 @@ public class PasswordTests {
 	public void PasswordLengthIsInvalid()
 	{
 		string password = "12345678";
-		bool isPasswordValid = PasswordChecker.HasMoreThanNumberCharacters(password, 8);
+		bool isPasswordValid = PasswordChecker.HasMoreThanNumberCharacters(password, 8, new Printer());
 		Assert.That(isPasswordValid, Is.False);
 	}
 	
@@ -109,7 +108,7 @@ public class PasswordTests {
 	public void PasswordLengthIsInvalidSixteen()
 	{
 		string password = "1234567890123456";
-		bool isPasswordValid = PasswordChecker.HasMoreThanNumberCharacters(password, 16);
+		bool isPasswordValid = PasswordChecker.HasMoreThanNumberCharacters(password, 16, new Printer());
 		Assert.That(isPasswordValid, Is.False);
 	}
 
@@ -183,5 +182,15 @@ public class PasswordTests {
 		string password = "GHSDGHJSADGASHJ";
 		bool isPasswordValid = PasswordChecker.HasUnderscore(password);
 		Assert.That(isPasswordValid, Is.False);
+	}
+	
+	[Test]
+	public void PasswordLengthIsInvalidWithError()
+	{
+		string password = "12345678";
+		var printer = new Printer();
+		bool isPasswordValid = PasswordChecker.HasMoreThanNumberCharacters(password, 8, printer);
+		Assert.That(isPasswordValid, Is.False);
+		Assert.AreEqual(printer.lastPrintedLine, "The password needs at least 8 long");
 	}
 }
