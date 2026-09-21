@@ -22,11 +22,16 @@ public static class Validator2
 {
     public static bool ValidatePassword(Password password, Printer printer)
     {
-        return
-            password.LengthGreaterThan(6) &&
-            password.ContainsUpperCase() &&
-            password.ContainsLowerCase() &&
-            password.ContainsNumbers(printer);
+        List<bool> condiciones = new List<bool>
+        {
+            password.LengthGreaterThan(6),
+            password.ContainsUpperCase(),
+            password.ContainsLowerCase(),
+            password.ContainsNumbers(printer),
+        };
+        
+        return condiciones.All(c => c.Equals(true));
+        
     }
 }
 
@@ -34,10 +39,15 @@ public static class Validator3
 {
     public static bool ValidatePassword(Password password, Printer printer)
     {
-        return
-            password.LengthGreaterThan(16) &&
-            password.ContainsUpperCase() &&
-            password.ContainsLowerCase() &&
-            password.ContainsUnderscore(printer);
+        List<bool> condiciones = new List<bool>
+        {
+            password.LengthGreaterThan(16),
+            password.ContainsUpperCase(),
+            password.ContainsLowerCase(),
+            password.ContainsUnderscore(printer),
+        };
+        
+        return condiciones.All(c => c.Equals(true));
+        
     }    
 }
