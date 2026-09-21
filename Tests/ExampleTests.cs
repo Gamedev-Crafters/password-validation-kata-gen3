@@ -15,22 +15,23 @@ public class Tests {
 	[Test]
 	public void PasswordValid()
 	{
-		Assert.That(Validator1.ValidatePassword(new Password("key_A12a3sd1fa5s3")), Is.True);
+		Assert.That(Validator1.ValidatePassword(new Password("key_A12a3sd1fa5s3"), new Printer()), Is.True);
 	}
 	
 	[Test]
 	public void PasswordMessageError()
 	{
-		Assert.That(Validator1.ValidatePassword(new Password("keyA12a3sd1fa5s3")), Is.False);
+		Printer printer = new Printer();
+		Assert.That(Validator1.ValidatePassword(new Password("keyA12a3sd1fa5s3"), printer), Is.False);
 		string mensajeError = "Le falta un underscore";
-		Assert.AreEqual(mensajeError, Printer.UltimaLinea);
+		Assert.AreEqual(mensajeError, printer.UltimaLinea);
 			
 	}
 	
 	[Test]
 	public void PasswordInvalid()
 	{
-		Assert.That(Validator1.ValidatePassword(new Password("a")), Is.False);
+		Assert.That(Validator1.ValidatePassword(new Password("a"), new Printer()), Is.False);
 	}
 	
 	[Test]

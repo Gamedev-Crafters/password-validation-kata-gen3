@@ -1,8 +1,8 @@
 ﻿namespace Project;
-public static class Printer
+public class Printer
 {
-    public static string UltimaLinea;
-    public static void WriteLine(string text)
+    public string UltimaLinea;
+    public void WriteLine(string text)
     {
         UltimaLinea = text;
         Console.WriteLine(text);
@@ -27,13 +27,13 @@ public class Password
         return password != password.ToUpper();
     }
     
-    public bool ContainsUnderscore()
+    public bool ContainsUnderscore(Printer printer)
     {
         if (password.Contains('_'))
         {
             return true;
         } else {
-            Printer.WriteLine("Le falta un underscore");
+            printer.WriteLine("Le falta un underscore");
             return false;
         }
     }

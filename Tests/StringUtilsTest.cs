@@ -31,13 +31,13 @@ public class StringValidateTest
     [Test]
     public void PasswordHasUnderscore()
     {
-        Assert.That(new Password("asdf_ASdf").ContainsUnderscore(), Is.True);
+        Assert.That(new Password("asdf_ASdf").ContainsUnderscore(new Printer()), Is.True);
     }
 	
     [Test]
     public void PasswordDoesNotHaveUnderscore()
     {
-        Assert.That(new Password("asdfASdf").ContainsUnderscore(), Is.False);
+        Assert.That(new Password("asdfASdf").ContainsUnderscore(new Printer()), Is.False);
     }
 	
     [Test]

@@ -3,14 +3,14 @@ namespace Project;
 
 public static class Validator1
 {
-    public static bool ValidatePassword(Password password)
+    public static bool ValidatePassword(Password password, Printer printer)
     {
         return
             password.LengthGreaterThan(8) &&
             password.ContainsUpperCase() &&
             password.ContainsLowerCase() &&
             password.ContainsNumbers() &&
-            password.ContainsUnderscore();
+            password.ContainsUnderscore(printer);
     }    
 }
 
@@ -34,6 +34,6 @@ public static class Validator3
             password.LengthGreaterThan(16) &&
             password.ContainsUpperCase() &&
             password.ContainsLowerCase() &&
-            password.ContainsUnderscore();
+            password.ContainsUnderscore(new Printer());
     }    
 }

@@ -4,7 +4,7 @@ class Program {
 	static void Main(string[] args)
 	{
 		Password password = new Password(args[0]);
-		if (Validator1.ValidatePassword(password))
+		if (Validator1.ValidatePassword(password, new Printer()))
 		{
 			Console.WriteLine("perfecto");
 		}
