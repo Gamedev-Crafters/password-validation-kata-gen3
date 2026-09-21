@@ -23,7 +23,7 @@ public class Tests {
 	{
 		Printer printer = new Printer();
 		Assert.That(Validator1.ValidatePassword(new Password("keyA12a3sd1fa5s3"), printer), Is.False);
-		string mensajeError = "Le falta un underscore";
+		string mensajeError = ERROR_MESSAGES.UNDERSCORE;
 		Assert.AreEqual(mensajeError, printer.UltimasLineas.Last());
 			
 	}
@@ -33,8 +33,8 @@ public class Tests {
 	{
 		Printer printer = new Printer();
 		Assert.That(Validator1.ValidatePassword(new Password("keyAkjsdhfjksdSS"), printer), Is.False);
-		string underscore = "Le falta un underscore";
-		string numero = "Le falta un número";
+		string underscore = ERROR_MESSAGES.UNDERSCORE;
+		string numero = ERROR_MESSAGES.NUMBER;
 		Assert.IsTrue(printer.UltimasLineas.Contains(underscore) && printer.UltimasLineas.Contains(numero));
 			
 	}

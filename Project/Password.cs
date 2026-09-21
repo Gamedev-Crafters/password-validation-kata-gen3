@@ -9,6 +9,18 @@ public class Printer
     }
 }
 
+public static class ERROR_MESSAGES
+{
+    public static string UNDERSCORE = "Le falta un underscore";
+    public static string NUMBER = "Le falta un número";
+    public static string UPPERCASE = "Le falta una mayúscula";
+    public static string LOWERCASE = "Le falta una minúscula";
+    public static string LENGTH = "Le falta longitud";
+    
+    
+    
+}
+
 public class Password
 {
     private string password;
@@ -34,7 +46,7 @@ public class Password
         {
             return true;
         } else {
-            printer.WriteLine("Le falta un underscore");
+            printer.WriteLine(ERROR_MESSAGES.UNDERSCORE);
             return false;
         }
     }
@@ -58,7 +70,7 @@ public class Password
         }
         else
         {
-            printer.WriteLine("Le falta un número");
+            printer.WriteLine(ERROR_MESSAGES.NUMBER);
             return false;
         }
 
