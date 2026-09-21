@@ -19,13 +19,13 @@ public class StringValidateTest
     [Test]
     public void PasswordHasNumbers()
     {
-        Assert.That(new Password("1a32s1df3sa").ContainsNumbers(), Is.True);
+        Assert.That(new Password("1a32s1df3sa").ContainsNumbers(new Printer()), Is.True);
     }
 	
     [Test]
     public void PasswordDoesNotHaveNumbers()
     {
-        Assert.That(new Password("alkjshdflas").ContainsNumbers(), Is.False);
+        Assert.That(new Password("alkjshdflas").ContainsNumbers(new Printer()), Is.False);
     }
 	
     [Test]

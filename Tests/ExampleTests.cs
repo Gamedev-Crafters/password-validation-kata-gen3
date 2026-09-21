@@ -37,24 +37,24 @@ public class Tests {
 	[Test]
 	public void PasswordValid_2()
 	{
-		Assert.That(Validator2.ValidatePassword(new Password("keyA12a")), Is.True);
+		Assert.That(Validator2.ValidatePassword(new Password("keyA12a"), new Printer()), Is.True);
 	}
 	
 	[Test]
 	public void PasswordInvalid_2()
 	{
-		Assert.That(Validator2.ValidatePassword(new Password("a")), Is.False);
+		Assert.That(Validator2.ValidatePassword(new Password("a"), new Printer()), Is.False);
 	}
 	
 	[Test]
 	public void PasswordValid_3()
 	{
-		Assert.That(Validator3.ValidatePassword(new Password("0123456789asdfA_b")), Is.True);
+		Assert.That(Validator3.ValidatePassword(new Password("0123456789asdfA_b"), new Printer()), Is.True);
 	}
 	
 	[Test]
 	public void PasswordInvalid_3()
 	{
-		Assert.That(Validator3.ValidatePassword(new Password("keyA12a")), Is.False);
+		Assert.That(Validator3.ValidatePassword(new Password("keyA12a"), new Printer()), Is.False);
 	}
 }

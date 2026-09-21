@@ -9,31 +9,31 @@ public static class Validator1
             password.LengthGreaterThan(8) &&
             password.ContainsUpperCase() &&
             password.ContainsLowerCase() &&
-            password.ContainsNumbers() &&
+            password.ContainsNumbers(printer) &&
             password.ContainsUnderscore(printer);
     }    
 }
 
 public static class Validator2 
 {
-    public static bool ValidatePassword(Password password)
+    public static bool ValidatePassword(Password password, Printer printer)
     {
         return
             password.LengthGreaterThan(6) &&
             password.ContainsUpperCase() &&
             password.ContainsLowerCase() &&
-            password.ContainsNumbers();
+            password.ContainsNumbers(printer);
     }
 }
 
 public static class Validator3
 {
-    public static bool ValidatePassword(Password password)
+    public static bool ValidatePassword(Password password, Printer printer)
     {
         return
             password.LengthGreaterThan(16) &&
             password.ContainsUpperCase() &&
             password.ContainsLowerCase() &&
-            password.ContainsUnderscore(new Printer());
+            password.ContainsUnderscore(printer);
     }    
 }

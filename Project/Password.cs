@@ -38,20 +38,30 @@ public class Password
         }
     }
     
-    public bool ContainsNumbers()
+    public bool ContainsNumbers(Printer printer)
     {
         // TODO algun valiente que haga regex
-        return 
-            password.Contains('0') || 
-            password.Contains('1') || 
-            password.Contains('2') ||
-            password.Contains('3') ||
-            password.Contains('4') ||
-            password.Contains('5') ||
-            password.Contains('6') ||
-            password.Contains('7') ||
-            password.Contains('8') ||
-            password.Contains('9');
+        bool result =  password.Contains('0') || 
+                       password.Contains('1') || 
+                       password.Contains('2') ||
+                       password.Contains('3') ||
+                       password.Contains('4') ||
+                       password.Contains('5') ||
+                       password.Contains('6') ||
+                       password.Contains('7') ||
+                       password.Contains('8') ||
+                       password.Contains('9');
+        if (result)
+        {
+            return true;
+        }
+        else
+        {
+            printer.WriteLine("Le falta un número");
+            return false;
+        }
+
+           
     }
     
     public bool LengthGreaterThan(int min)
