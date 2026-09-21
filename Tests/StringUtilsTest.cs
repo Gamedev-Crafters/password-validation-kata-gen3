@@ -19,25 +19,25 @@ public class StringValidateTest
     [Test]
     public void PasswordHasNumbers()
     {
-        Assert.That(new Password("1a32s1df3sa").ContainsNumbers(new Printer()), Is.True);
+        Assert.That(new Password("1a32s1df3sa").ContainsNumbers(new TestPrinter()), Is.True);
     }
 	
     [Test]
     public void PasswordDoesNotHaveNumbers()
     {
-        Assert.That(new Password("alkjshdflas").ContainsNumbers(new Printer()), Is.False);
+        Assert.That(new Password("alkjshdflas").ContainsNumbers(new TestPrinter()), Is.False);
     }
 	
     [Test]
     public void PasswordHasUnderscore()
     {
-        Assert.That(new Password("asdf_ASdf").ContainsUnderscore(new Printer()), Is.True);
+        Assert.That(new Password("asdf_ASdf").ContainsUnderscore(new TestPrinter()), Is.True);
     }
 	
     [Test]
     public void PasswordDoesNotHaveUnderscore()
     {
-        Assert.That(new Password("asdfASdf").ContainsUnderscore(new Printer()), Is.False);
+        Assert.That(new Password("asdfASdf").ContainsUnderscore(new TestPrinter()), Is.False);
     }
 	
     [Test]

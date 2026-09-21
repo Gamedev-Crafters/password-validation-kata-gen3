@@ -1,11 +1,23 @@
 ﻿namespace Project;
-public class Printer
+public interface Printer
+{
+    public void WriteLine(string text);
+}
+
+public class RealPrinter : Printer
+{
+    public void WriteLine(string text)
+    {
+        Console.WriteLine(text);
+    }
+}
+
+public class TestPrinter : Printer
 {
     public List<string> UltimasLineas =  new List<string>();
     public void WriteLine(string text)
     {
         UltimasLineas.Add(text);
-        Console.WriteLine(text);
     }
 }
 
@@ -16,8 +28,6 @@ public static class ERROR_MESSAGES
     public static string UPPERCASE = "Le falta una mayúscula";
     public static string LOWERCASE = "Le falta una minúscula";
     public static string LENGTH = "Le falta longitud";
-    
-    
     
 }
 
