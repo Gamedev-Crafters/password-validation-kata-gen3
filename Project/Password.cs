@@ -21,7 +21,13 @@ public class Password
     
     public bool ContainsUnderscore()
     {
-        return password.Contains('_');
+        if (password.Contains('_'))
+        {
+            return true;
+        } else {
+            Console.WriteLine("Le falta un underscore");
+            return false;
+        }
     }
     
     public bool ContainsNumbers()
