@@ -7,9 +7,9 @@ public static class Validator1
     {
         List<bool> condiciones = new List<bool>
         {
-            password.LengthGreaterThan(8),
-            password.ContainsUpperCase(),
-            password.ContainsLowerCase(),
+            password.LengthGreaterThan(8, printer),
+            password.ContainsUpperCase(printer),
+            password.ContainsLowerCase(printer),
             password.ContainsNumbers(printer),
             password.ContainsUnderscore(printer),
         };
@@ -24,9 +24,9 @@ public static class Validator2
     {
         List<bool> condiciones = new List<bool>
         {
-            password.LengthGreaterThan(6),
-            password.ContainsUpperCase(),
-            password.ContainsLowerCase(),
+            password.LengthGreaterThan(6, printer),
+            password.ContainsUpperCase(printer),
+            password.ContainsLowerCase(printer),
             password.ContainsNumbers(printer),
         };
         
@@ -41,9 +41,9 @@ public static class Validator3
     {
         List<bool> condiciones = new List<bool>
         {
-            password.LengthGreaterThan(16),
-            password.ContainsUpperCase(),
-            password.ContainsLowerCase(),
+            password.LengthGreaterThan(16, printer),
+            password.ContainsUpperCase(printer),
+            password.ContainsLowerCase(printer),
             password.ContainsUnderscore(printer),
         };
         

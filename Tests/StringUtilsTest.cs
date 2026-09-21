@@ -7,13 +7,13 @@ public class StringValidateTest
 {
     [Test]
     public void PasswordLenghtNotEnough() {
-        Assert.That(new Password("key").LengthGreaterThan(8), Is.False);
+        Assert.That(new Password("key").LengthGreaterThan(8, new TestPrinter()), Is.False);
     }
 	
     [Test]
     public void PasswordLenghtEnough()
     {
-        Assert.That(new Password("123456789").LengthGreaterThan(8), Is.True);
+        Assert.That(new Password("123456789").LengthGreaterThan(8, new TestPrinter()), Is.True);
     }
 
     [Test]
@@ -43,30 +43,30 @@ public class StringValidateTest
     [Test]
     public void PasswordHasLowercase()
     {
-        Assert.That(new Password("asdfasdf").ContainsLowerCase(), Is.True);
+        Assert.That(new Password("asdfasdf").ContainsLowerCase(new TestPrinter()), Is.True);
     }
 	
     [Test]
     public void PasswordDoesNotHaveLowercase()
     {
-        Assert.That(new Password("ASDAJGFSJDA").ContainsLowerCase(), Is.False);
+        Assert.That(new Password("ASDAJGFSJDA").ContainsLowerCase(new TestPrinter()), Is.False);
     }
 	
     [Test]
     public void PasswordHasUppercase()
     {
-        Assert.That(new Password("ASHDGFAGHF").ContainsUpperCase(), Is.True);
+        Assert.That(new Password("ASHDGFAGHF").ContainsUpperCase(new TestPrinter()), Is.True);
     }
 	
     [Test]
     public void PasswordDoesNotHaveUppercase()
     {
-        Assert.That(new Password("asdfasdfa").ContainsUpperCase(), Is.False);
+        Assert.That(new Password("asdfasdfa").ContainsUpperCase(new TestPrinter()), Is.False);
     }
 	
     [Test]
     public void EmptyPasswordThatDoesNotHaveUppercase()
     {
-        Assert.That(new Password("").ContainsUpperCase(), Is.False);
+        Assert.That(new Password("").ContainsUpperCase(new TestPrinter()), Is.False);
     }
 }

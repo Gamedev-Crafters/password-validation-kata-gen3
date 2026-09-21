@@ -40,14 +40,30 @@ public class Password
         this.password = password;
     }
     
-    public bool ContainsUpperCase()
+    public bool ContainsUpperCase(Printer printer)
     {
-        return password != password.ToLower();
+        if (password != password.ToLower())
+        {
+            return true;
+        }
+        else
+        {
+            printer.WriteLine(ERROR_MESSAGES.UPPERCASE);
+            return false;
+        }
     }
 
-    public bool ContainsLowerCase()
+    public bool ContainsLowerCase(Printer printer)
     {
-        return password != password.ToUpper();
+        if (password != password.ToUpper())
+        {
+            return true;
+        }
+        else
+        {
+            printer.WriteLine(ERROR_MESSAGES.LOWERCASE);
+            return false;
+        }
     }
     
     public bool ContainsUnderscore(Printer printer)
@@ -87,8 +103,17 @@ public class Password
            
     }
     
-    public bool LengthGreaterThan(int min)
+    public bool LengthGreaterThan(int min, Printer printer)
     {
-        return password.Length > min;
+        
+        if (password.Length > min)
+        {
+            return true;
+        }
+        else
+        {
+            printer.WriteLine(ERROR_MESSAGES.LENGTH);
+            return false;
+        }
     }
 }
