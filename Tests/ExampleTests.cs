@@ -19,14 +19,26 @@ public class Tests {
 	}
 	
 	[Test]
-	public void PasswordMessageError()
+	public void UnderscoreError()
 	{
 		Printer printer = new Printer();
 		Assert.That(Validator1.ValidatePassword(new Password("keyA12a3sd1fa5s3"), printer), Is.False);
 		string mensajeError = "Le falta un underscore";
-		Assert.AreEqual(mensajeError, printer.UltimaLinea);
+		Assert.AreEqual(mensajeError, printer.UltimasLineas.Last());
 			
 	}
+	
+	[Test]
+	public void UnderscoreAndNumberError()
+	{
+		Printer printer = new Printer();
+		Assert.That(Validator1.ValidatePassword(new Password("keyAkjsdhfjksdSS"), printer), Is.False);
+		string underscore = "Le falta un underscore";
+		string numero = "Le falta un número";
+		Assert.IsTrue(printer.UltimasLineas.Contains(underscore) && printer.UltimasLineas.Contains(numero));
+			
+	}
+	
 	
 	[Test]
 	public void PasswordInvalid()

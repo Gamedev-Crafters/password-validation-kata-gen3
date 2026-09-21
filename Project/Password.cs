@@ -1,13 +1,14 @@
 ﻿namespace Project;
 public class Printer
 {
-    public string UltimaLinea;
+    public List<string> UltimasLineas =  new List<string>();
     public void WriteLine(string text)
     {
-        UltimaLinea = text;
+        UltimasLineas.Add(text);
         Console.WriteLine(text);
     }
 }
+
 public class Password
 {
     private string password;

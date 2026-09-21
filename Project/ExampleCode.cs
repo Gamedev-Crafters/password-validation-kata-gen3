@@ -5,12 +5,16 @@ public static class Validator1
 {
     public static bool ValidatePassword(Password password, Printer printer)
     {
-        return
-            password.LengthGreaterThan(8) &&
-            password.ContainsUpperCase() &&
-            password.ContainsLowerCase() &&
-            password.ContainsNumbers(printer) &&
-            password.ContainsUnderscore(printer);
+        List<bool> condiciones = new List<bool>
+        {
+            password.LengthGreaterThan(8),
+            password.ContainsUpperCase(),
+            password.ContainsLowerCase(),
+            password.ContainsNumbers(printer),
+            password.ContainsUnderscore(printer),
+        };
+        
+        return condiciones.All(c => c.Equals(true));
     }    
 }
 
