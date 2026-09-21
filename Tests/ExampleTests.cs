@@ -19,6 +19,15 @@ public class Tests {
 	}
 	
 	[Test]
+	public void PasswordMessageError()
+	{
+		Assert.That(Validator1.ValidatePassword(new Password("keyA12a3sd1fa5s3")), Is.False);
+		string mensajeError = "Le falta un underscore";
+		Assert.AreEqual(mensajeError, Printer.UltimaLinea);
+			
+	}
+	
+	[Test]
 	public void PasswordInvalid()
 	{
 		Assert.That(Validator1.ValidatePassword(new Password("a")), Is.False);

@@ -1,5 +1,13 @@
 ﻿namespace Project;
-
+public static class Printer
+{
+    public static string UltimaLinea;
+    public static void WriteLine(string text)
+    {
+        UltimaLinea = text;
+        Console.WriteLine(text);
+    }
+}
 public class Password
 {
     private string password;
@@ -25,7 +33,7 @@ public class Password
         {
             return true;
         } else {
-            Console.WriteLine("Le falta un underscore");
+            Printer.WriteLine("Le falta un underscore");
             return false;
         }
     }

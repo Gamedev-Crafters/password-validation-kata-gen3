@@ -1,5 +1,6 @@
 namespace Project;
 
+
 public static class Validator1
 {
     public static bool ValidatePassword(Password password)
