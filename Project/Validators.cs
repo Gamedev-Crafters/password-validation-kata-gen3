@@ -51,3 +51,19 @@ public static class Validator3
         
     }    
 }
+
+public static class Validator4
+{
+    public static bool ValidatePassword(Password password, Printer printer)
+    {
+        List<bool> condiciones = new List<bool>
+        {
+            password.LengthGreaterThan(8, printer),
+            password.ContainsUpperCase(printer),
+            password.ContainsNumbers(printer),
+            password.ContainsUnderscore(printer),
+        };
+        return condiciones.Count(c => c.Equals(true)) >= condiciones.Count - 1;
+        
+    }    
+}

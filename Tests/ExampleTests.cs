@@ -69,4 +69,22 @@ public class Tests {
 	{
 		Assert.That(Validator3.ValidatePassword(new Password("keyA12a"), new TestPrinter()), Is.False);
 	}
+
+	[Test]
+	public void PasswordOneFailValid()
+	{
+		Assert.That(Validator4.ValidatePassword(new Password("Abcdnoseque67"), new TestPrinter()), Is.True);
+	}
+
+	[Test]
+	public void PasswordAllValid()
+	{
+		Assert.That(Validator4.ValidatePassword(new Password("Abcdno_seque67"), new TestPrinter()), Is.True);
+	}
+
+	[Test]
+	public void PasswordTwoFailInvalid()
+	{
+		Assert.That(Validator4.ValidatePassword(new Password("abcdnoseque67"), new TestPrinter()), Is.False);
+	}
 }
