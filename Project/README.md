@@ -63,3 +63,29 @@ we should be able to return a list of errors for each invalid password, so we co
 ### Things to practise
 Identify how maintainable it's the code that you've built so far, and how it adapts to change, 
 this iteration could change depending on the programming language that you use.
+
+
+## Iteration 4 - Validation strategy
+### Goal
+Up until this point we've been able to create a list of validation rules and validate the password 
+passes all the validation rules, but now we want a new password with the same rules but allowing to fail only one of them.
+
+Validation 4:
+
+- Have more than 8 characters
+- Contains a capital letter
+- Contains a number
+- Contains an underscore
+
+Examples:
+
+- Have more than 8 characters ✅
+- Contains a capital letter ✅
+- Contains a number ✅
+- Contains an underscore ❌
+
+This password it's a valid password
+
+
+This will help to enforce encapsulation for the lists of rules and have a better design for 
+validation strategies [preventing us from using inheritance], this also could help us work on the Strategy pattern.
