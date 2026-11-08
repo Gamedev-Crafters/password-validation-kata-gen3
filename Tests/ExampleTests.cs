@@ -36,7 +36,6 @@ public class Tests {
 		string underscore = ERROR_MESSAGES.UNDERSCORE;
 		string numero = ERROR_MESSAGES.NUMBER;
 		Assert.IsTrue(printer.UltimasLineas.Contains(underscore) && printer.UltimasLineas.Contains(numero));
-			
 	}
 	
 	

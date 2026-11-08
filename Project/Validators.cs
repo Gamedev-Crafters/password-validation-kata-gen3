@@ -1,54 +1,76 @@
 namespace Project;
 
+public class Validator
+{
+    private List<Rule> condiciones = new List<Rule>();
+
+    public Validator(List<Rule> condiciones)
+    {
+        this.condiciones = condiciones;
+    }
+
+    public bool ValidatePassword(Password password, Printer printer)
+    {
+        List<bool> resultCollection = new List<bool>();
+        condiciones.ForEach(rule =>
+        {
+            resultCollection.Add(rule.validate(password, printer));
+        });
+        return resultCollection.All(result => result);
+
+    }
+    
+}
 
 public static class Validator1
 {
     public static bool ValidatePassword(Password password, Printer printer)
     {
-        List<bool> condiciones = new List<bool>
+        Validator validator = new Validator(new List<Rule>
         {
-            new LengthGreaterThan(8).validate(password, printer),
-            new ContainsUpperCase().validate(password, printer),
-            new ContainsLowerCase().validate(password, printer),
-            new ContainsNumbers().validate(password, printer),
-            new ContainsUnderscore().validate(password, printer),
-        };
-        
-        return condiciones.All(c => c.Equals(true));
+            new LengthGreaterThan(8),
+            new ContainsUpperCase(),
+            new ContainsLowerCase(),
+            new ContainsNumbers(),
+            new ContainsUnderscore()
+        });
+
+        return validator.ValidatePassword(password, printer);
     }
 }
+
 public static class Validator2 
 {
     public static bool ValidatePassword(Password password, Printer printer)
     {
-        List<bool> condiciones = new List<bool>
+        Validator validator = new Validator(new List<Rule>
         {
-            password.LengthGreaterThan(6, printer),
-            password.ContainsUpperCase(printer),
-            password.ContainsLowerCase(printer),
-            password.ContainsNumbers(printer),
-        };
-        
-        return condiciones.All(c => c.Equals(true));
-        
+            new LengthGreaterThan(6),
+            new ContainsUpperCase(),
+            new ContainsLowerCase(),
+            new ContainsNumbers()
+        });
+
+        return validator.ValidatePassword(password, printer);
+
     }
 }
 
 public static class Validator3
 {
+
     public static bool ValidatePassword(Password password, Printer printer)
     {
-        List<bool> condiciones = new List<bool>
+        Validator validator = new Validator(new List<Rule>
         {
-            password.LengthGreaterThan(16, printer),
-            password.ContainsUpperCase(printer),
-            password.ContainsLowerCase(printer),
-            password.ContainsUnderscore(printer),
-        };
-        
-        return condiciones.All(c => c.Equals(true));
-        
-    }    
+            new LengthGreaterThan(16),
+            new ContainsUpperCase(),
+            new ContainsLowerCase(),
+            new ContainsUnderscore()
+        });
+
+        return validator.ValidatePassword(password, printer);
+    }
 }
 
 public static class Validator4
