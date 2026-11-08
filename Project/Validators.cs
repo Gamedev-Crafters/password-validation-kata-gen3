@@ -7,17 +7,16 @@ public static class Validator1
     {
         List<bool> condiciones = new List<bool>
         {
-            password.LengthGreaterThan(8, printer),
-            password.ContainsUpperCase(printer),
-            password.ContainsLowerCase(printer),
-            password.ContainsNumbers(printer),
-            password.ContainsUnderscore(printer),
+            new LengthGreaterThan(8).validate(password, printer),
+            new ContainsUpperCase().validate(password, printer),
+            new ContainsLowerCase().validate(password, printer),
+            new ContainsNumbers().validate(password, printer),
+            new ContainsUnderscore().validate(password, printer),
         };
         
         return condiciones.All(c => c.Equals(true));
-    }    
+    }
 }
-
 public static class Validator2 
 {
     public static bool ValidatePassword(Password password, Printer printer)
